@@ -17,9 +17,9 @@ sumofsquares <- function(linearmodel,datavariable){
 
   TSS = sum((datavariable-mean(datavariable))^2)
 
-  show(RSS)
+show(RSS)
   show(MSS)
-  show(TSS)
+show(TSS)
   show(MSS/TSS)
 }
 
