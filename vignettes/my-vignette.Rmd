@@ -1,0 +1,72 @@
+---
+title: "my-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MATH4753carl0026)
+```
+
+This package is a compilation of functions used throughout the semester in MATH 4753 Applied Statistical Methods.
+
+##Functions
+
+## myboot
+Displays a confidence interval of a parameter for a given sample
+```{r}
+sam = dnorm(30)
+a=MATH4753carl0026:::myboot2(iter=10000,sam,fun="mean",alpha=0.05)
+```
+
+## myci
+Calculates a 95% confidence interval for a sample mean
+```{r}
+MATH4753carl0026:::myci(c(1,2,5,6))
+```
+
+## mycltp
+Displays the central limit theorem for a poisson distribution
+```{r}
+par(mar=c(1,1,1,1))
+MATH4753carl0026:::mycltp(n=10,iter=10000,lambda=2)
+```
+
+## mymaxlik
+Displays the likelihood function of a parameter for a given distribution
+```{r}
+logbin=function(x,param){ log(dbinom(x,prob=param,size=10))}
+
+MATH4753carl0026:::mymaxlik(x=c(3,3,4,3,4,5,5,4),param=seq(0,1,length=100),lfun=logbin,xlab=expression(p),main="Binomial",cex.main=2)
+ 
+```
+## myncurve
+Returns the probability that X<a for a normal distribution
+```{r}
+MATH4753carl0026:::myncurve(0,1,1)
+```
+
+## runiform
+Randomly generates a uniform distribution and displays it
+```{r}
+MATH4753carl0026:::runiform(10,100)
+```
+## sos
+Displays sum of squares info
+```{r}
+fr<-lm(DAMAGE~DISTANCE,MATH4753carl0026::fire)
+ MATH4753carl0026:::sumofsquares(fr, MATH4753carl0026::fire$DAMAGE)
+```
+
+
+
